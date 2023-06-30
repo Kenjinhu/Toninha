@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #buttonContainer {
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: white;
+            color: blue;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            var noButton = document.getElementById("noButton");
+            noButton.addEventListener("mouseover", moveButton);
+
+            var yesButton = document.getElementById("yesButton");
+            yesButton.addEventListener("click", function() {
+                var text = document.getElementById("text");
+                text.textContent = "Eu também te amo, tona <3";
+            });
+
+            function moveButton() {
+                var screenWidth = window.innerWidth;
+                var screenHeight = window.innerHeight;
+
+                var randomX = Math.floor(Math.random() * screenWidth);
+                var randomY = Math.floor(Math.random() * screenHeight);
+
+                noButton.style.position = "absolute";
+                noButton.style.left = randomX + "px";
+                noButton.style.top = randomY + "px";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="main">
+        <h2 id="text">você me ama?</h2>
+        <div id="buttonContainer">
+            <button id="yesButton" class="button">Sim</button>
+            <button id="noButton" class="button">Não</button>
+        </div>
+    </div>
+</body>
+</html>
